@@ -12,11 +12,11 @@ This repository has the python implmentation of the "object pushing" experiment 
 * Also, python3 is required to run the experiment.
 * All experiments must be run from the base directory 
 
-## Object pushing experiment with kuka:
+### Object pushing experiment with kuka:
 
 * Generating the policy repertoires using MAP Elites:
 
-    * Run: python kuka_pushing_exps/map_elites_kuka_pushing.py --toy 5
+    * Run: ```python kuka_pushing_exps/map_elites_kuka_pushing.py --toy 5```
 
     * It will start saving the intermediate repertoires after every 100 generations in the same directory. It should take a few hours to reach the maximum number of evaluations. Using the '--toy' the repertoires can be generated for different toys.
 --toy can take any integer value between 0 to 13.
@@ -26,3 +26,17 @@ This repository has the python implmentation of the "object pushing" experiment 
 * Running the experiments
 
 ```python kuka_pushing_exps/kukaPushing_astar_ctlr2cartesian_v2.py --toy 0 --ucb_const 0.5 --kernel_var 0.003 --kernel_l 0.03 --visualization_speed 5.0 --search_size 800  --objectEulerAngles -1 --gui```
+
+### Hexapod damage recovery and goal reaching:
+
+* Generating the policy repertoires using MAP Elites:
+
+   * Run: ```python hexapod_experiments/map_elites_hexapod_cartesian.py --lateral_friction 1.0 --blocked_legs 1 3```
+
+   * Where --lateral_friction is the floor friction and --blocked_legs specifies which legs are to be blocked. --blocked_legs can take a list of space separated integers between 0-5. It will start saving the intermediate repertoires after every 100 generations in the same directory. It should take a few hours to reach the maximum number of evaluations.
+
+   * Some pregenerated repertoires are provided in the data directory.
+
+* Running the experiments
+
+```python hexapod_experiments/hexapod_astar_ctlr2cartesian_v2_Arena.py  --kernel_var 0.03 --kernel_l 0.03 --search_size 100 --gui --blocked_legs 0 --visualization_speed 2.0 --lateral_friction 0.8```
