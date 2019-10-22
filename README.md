@@ -1,6 +1,6 @@
 # Adaptive Prior Selection for Repertoire-based Adaptation in Robotics
 
-This repository has the python implmentation of the "object pushing" experiment and "hexapod damage recovery" experiment for the paper *Adaptive Prior Selection for Repertoire-based Adaptation in Robotics*.
+This repository has the python implmentation of the "object pushing" experiment and "hexapod damage recovery" experiment for the paper *[Adaptive Prior Selection for Repertoire-based Adaptation in Robotics](https://arxiv.org/abs/1907.07029)*.
 
 * Following python libraries bust be installed to run the experiments:
 
