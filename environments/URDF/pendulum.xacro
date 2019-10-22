@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<robot name="pendulum" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:property name="length" value="1.0"/>
+    <xacro:property name="width" value="${length/90.0}"/>
+    <xacro:property name="mass" value="1.0"/>
+    <xacro:property name="mu" value="0.01"/>
+    
+    <material name="omni/Blue">
+      <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="omni/Red">
+      <color rgba="1 0 0 1"/>
+    </material>
+    <material name="omni/White">
+      <color rgba="1 1 1 1"/>
+    </material>
+    <material name="omni/Green">
+      <color rgba="0 1 0 1"/>
+    </material>
+    <material name="omni/Yellow">
+      <color rgba="1 1 0 1"/>
+    </material>
+    <material name="omni/LightGrey">
+      <color rgba="0.6 0.6 0.6 1"/>
+    </material>
+    <material name="omni/DarkGrey">
+      <color rgba="0.4 0.4 0.4 1"/>
+    </material>
+
+    <link name="base_link">    
+    </link>
+
+    <link name="visual_joint">
+      <visual>
+        <origin rpy="0 ${3.14/2.0} 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="${length/10.0}" radius="${length/20.0}"/>
+        </geometry>
+        <material name="omni/Blue"/>
+      </visual>
+    </link>
+
+    <link name="pendulum">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-length/2}"/>
+        <geometry>
+          <box size="${width} ${width} ${length}"/>
+        </geometry>
+        <material name="omni/Red"/>
+      </visual>
+      <collision>
+          <origin rpy="0 0 0" xyz="0 0 ${-length/2}"/>
+          <geometry>
+            <!-- <box size="${width} ${width} ${length}"/> -->
+          <box size="${width} ${width} ${length}"/>
+          </geometry>
+      </collision>
+      <inertial>
+        <!-- CENTER OF MASS -->
+        <origin rpy="0 0 0" xyz="0 0 ${-length/2}"/>
+        <mass value="${mass}"/>
+        <!-- box inertia: 1/12*m(y^2+z^2), ... -->
+        <inertia ixx="${1/12 * mass * (width**2 + length**2)}" ixy="0" ixz="0" iyy="${1/12 * mass * (width**2 + length**2)}" iyz="0" izz="${1/12 * mass * (width**2 + width**2)}"/>
+      </inertial>
+    </link>
+
+    <joint name="base2pendulum_joint" type="revolute">
+      <origin rpy="0 0 0" xyz="0 0 ${1.3 * length}"/>
+      <parent link="base_link"/>
+      <child link="pendulum"/>
+      <dynamics damping="0.01" friction="0.0"/>
+      <limit effort="2" lower="-20" upper="20" velocity="10.0"/>
+      <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="base2visualJoint_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 ${1.3 * length}"/>
+      <parent link="base_link"/>
+      <child link="visual_joint"/>
+    </joint>
+
+</robot>

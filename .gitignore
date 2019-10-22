@@ -1,0 +1,8 @@
+*.pyc
+*.out
+*.npy
+*.npy
+*.job
+*.stdout
+*.txt
+*.stderr
