@@ -2,6 +2,8 @@
 
 This repository has the python implmentation of the "object pushing" experiment and "hexapod damage recovery" experiment for the paper *[Adaptive Prior Selection for Repertoire-based Adaptation in Robotics](https://arxiv.org/abs/1907.07029)*.
 
+Watch the video [here](https://www.youtube.com/watch?v=sbhW2rdIxA0&feature=youtu.be)
+
 * Following python libraries bust be installed to run the experiments:
 
     * pybullet
