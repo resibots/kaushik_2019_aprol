@@ -209,7 +209,6 @@ class Kuka_pusher_env:
         new_pos = eff_pos.copy()
         new_pos[2] = 2.5
         steps = (np.array(new_pos) - np.array(eff_pos))/10.0
-        print(steps) 
         for i in range(10):
             self.set_commands(np.array(eff_pos)+i*steps)
             self.simulate_for(0.08)
