@@ -15,7 +15,10 @@ Watch the video [here](https://www.youtube.com/watch?v=sbhW2rdIxA0&feature=youtu
 
 * Also, python3 is required to run the experiment.
 * All experiments must be run from the base directory 
-
+* Define an empty evironment variable ```RESIBOTS_DIR```. This is required in the current version of the code:
+```bash
+export RESIBOTS_DIR=""
+```
 ### Object pushing experiment with kuka:
 
 * Generating the policy repertoires using MAP Elites:
