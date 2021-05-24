@@ -1,0 +1,1 @@
+{'controlStep': 0.01, 'simStep': 0.004, 'runtime': 2.0, 'jointControlMode': 'position', 'lateral_friction': 1.0, 'toy': 4, 'object_radius': 0.5}
