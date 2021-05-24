@@ -1,0 +1,1 @@
+{'controlStep': 0.01, 'simStep': 0.004, 'runtime': 3.0, 'jointControlMode': 'velocity', 'lateral_friction': 1.0, 'blocked_legs': [2, 5]}

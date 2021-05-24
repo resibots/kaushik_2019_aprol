@@ -4,5 +4,4 @@
 *.npy
 *.job
 *.stdout
-*.txt
 *.stderr
